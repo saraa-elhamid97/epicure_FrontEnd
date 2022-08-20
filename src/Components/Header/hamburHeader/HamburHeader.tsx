@@ -14,7 +14,9 @@ export default function HamburHeader(props: UpdateOpen) {
     const dispatch = useDispatch();
 
     function navigateToRestaurantsPage() {
-        navigate('/restaurantsPage')
+        navigate('/restaurantsPage');
+        window.scrollTo(0, 0);
+
     }
 
 

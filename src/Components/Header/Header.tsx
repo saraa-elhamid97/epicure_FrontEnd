@@ -25,7 +25,9 @@ export default function Header() {
         window.scrollTo(0, 0);
     }
     function navigateToRestaurantsPage() {
-        navigate('/restaurantsPage')
+        navigate('/restaurantsPage');
+        window.scrollTo(0, 0);
+
     }
 
     return (

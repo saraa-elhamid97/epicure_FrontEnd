@@ -10,14 +10,12 @@ export default function RestaurantProfile() {
     const restaurantData = location.state as RestaurantInfo;
     const [underline, setUnderline] = useState('breakfast');
     const [dishes, setDishes] = useState<DishInfo[]>([]);
-    //const name = restaurantData.restaurantName;
-    /// console.log(dishes);
+
     useEffect(() => {
         async function fetchRestaurant() {
             const URL = 'http://localhost:3001/api/restaurants/getRestaurant?name=' + restaurantData.restaurantName.toString();
             const restaurant = await axios.get(URL).then(restaurant => restaurant.data);
-            console.log(restaurant);
-            setDishes(restaurant.dishes);
+            setDishes(restaurant[0].dishes);
         }
         fetchRestaurant();
 

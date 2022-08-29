@@ -12,10 +12,6 @@ export default function AllRestaurantsPage() {
     const [restaurantsUI, setRestaurantsUI] = useState<RestaurantInfo[]>(allRestaurants);
     const [underline, setUnderline] = useState('all');
     const [clicked, setClicked] = useState('');
-    const today = new Date();
-    const day = today.getDay();
-    let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(); console.log(time);
-    console.log(time);
     function filterRestaurants(buttonId: string) {
         let filterdRes = allRestaurants.filter((restaurant: RestaurantInfo) => {
             if (buttonId === 'all') return allRestaurants;

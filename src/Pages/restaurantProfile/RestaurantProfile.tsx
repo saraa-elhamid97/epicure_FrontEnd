@@ -10,6 +10,7 @@ export default function RestaurantProfile() {
     const restaurantData = location.state as RestaurantInfo;
     const [underline, setUnderline] = useState('breakfast');
     const [dishes, setDishes] = useState<DishInfo[]>([]);
+    const test = aa;
 
     useEffect(() => {
         async function fetchRestaurant() {

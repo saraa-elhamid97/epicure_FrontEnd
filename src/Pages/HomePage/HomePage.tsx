@@ -1,4 +1,3 @@
-import React from 'react'
 import AboutUsButtom from '../../Components/aboutUsBottom/AboutUsButtom'
 import ChefOfWeek from '../../Components/ChefOfWeek/ChefOfWeek'
 import ChefRestaurants from '../../Components/chefRestaurants/ChefRestaurants'
@@ -8,7 +7,10 @@ import SignatureDishes from '../../Components/signature_dishes/SignatureDishes'
 import Types from '../../Components/types/Types'
 import { HomePageContainer } from './HomePageStyle'
 
+
 export default function HomePage() {
+
+
     return (
         <HomePageContainer>
             <Hero />

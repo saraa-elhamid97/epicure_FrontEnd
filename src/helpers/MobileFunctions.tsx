@@ -1,17 +1,19 @@
 import Slider from 'react-slick'
-import { restaurantData, settings, dishData } from '../constants'
+import { settings } from '../constants'
 import RestaurantCard from '../Components/restaurantCard/RestaurantCard'
 import { Img } from '../LayoutStyle'
 import { Price, PriceTag } from '../Components/dishCard/DishCardStyle'
-import { DishInfo } from '../interfaces'
+import { DishInfo, RestaurantInfo } from '../interfaces'
 import DishCard from '../Components/dishCard/DishCard';
+import { useSelector } from 'react-redux'
 
 
 
-export function mobileChefRes() {
+export function MobileChefRes() {
+    const allrestaurants: RestaurantInfo[] = useSelector((state: any) => state.restaurants.allRestaurants);
     return <Slider {...settings}>
-        {restaurantData.filter(element => element.chefName == 'Yossi Shitrit').map(element =>
-            <RestaurantCard chefResComponent={true} allResPage={false} restaurantInfo={{ img_path: element.img_path, restaurantName: element.restaurantName, chefName: element.chefName }} />
+        {allrestaurants.filter(element => element.chefName === 'Yossi Shitrit').map((element, key) =>
+            <RestaurantCard key={key} chefResComponent={true} allResPage={false} restaurantInfo={{ img_path: element.img_path, restaurantName: element.restaurantName, chefName: element.chefName }} />
         )}        </Slider>
 }
 
@@ -22,19 +24,21 @@ export function mobilePrice(props: DishInfo) {
     </PriceTag>
 }
 
-export function mobilePopRes() {
+export function MobilePopRes() {
+    const allrestaurants: RestaurantInfo[] = useSelector((state: any) => state.restaurants.allRestaurants);
     return <Slider {...settings}>
-        {restaurantData.map(element =>
-            <RestaurantCard chefResComponent={false} allResPage={false} restaurantInfo={{ img_path: element.img_path, restaurantName: element.restaurantName, chefName: element.chefName, stars: element.stars }} />
+        {allrestaurants.filter(element => element.popular).map((element, key) =>
+            <RestaurantCard key={key} chefResComponent={false} allResPage={false} restaurantInfo={{ img_path: element.img_path, restaurantName: element.restaurantName, chefName: element.chefName, stars: element.stars, status: element.status, dishes: element.dishes }} />
         )}
 
     </Slider>
 }
 
-export function mobileDishes() {
+export function MobileDishes() {
+    const dishes: DishInfo[] = useSelector((state: any) => state.dishes.allDishes);
     return <Slider {...settings}>
-        {dishData.map(element =>
-            <DishCard img_path={element.img_path} dishName={element.dishName} ingredients={element.ingredients} type_img={element.type_img} price={element.price} />
+        {dishes.slice(0, 5).map((element, key) =>
+            <DishCard key={key} img_path={element.img_path} dishName={element.dishName} ingredients={element.ingredients} type_img={element.type_img} price={element.price} />
         )}
     </Slider>
 }

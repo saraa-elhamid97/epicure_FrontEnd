@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ChefName, ResChefName, ResName } from "../restaurantCard/RestaurantCardStyle";
+import { ChefName, ResName } from "../restaurantCard/RestaurantCardStyle";
 export const Dishcard = styled.div`
 padding-left: 7%;
     padding-bottom: 5%;

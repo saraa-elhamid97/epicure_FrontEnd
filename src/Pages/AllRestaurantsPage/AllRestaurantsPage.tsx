@@ -1,38 +1,35 @@
-import React, { useState } from 'react'
-import { restaurantData } from '../../constants'
+import React, { useEffect, useState } from 'react'
 import RestaurantCard from '../../Components/restaurantCard/RestaurantCard'
 import { Map, Div, Rating, Distance, PriceRange, SecondBar, DesktopSecondBar, NavBar, ResContainer, Title, MapButton, Res_Cards, AllButton, OpenButton, NewButton, PopularButton } from './AllRestaurantsPageStyle'
-import { useSelector, useDispatch } from 'react-redux'
-import { setRestaurants } from './restaurantsSlicer';
-import SetWindowSize from '../../helpers/SetWindowSize'
+import { useSelector } from 'react-redux'
 import { Img } from '../../LayoutStyle'
+import { RestaurantInfo } from '../../interfaces';
 
 
 
 export default function AllRestaurantsPage() {
-    const restaurantsUI = useSelector((state: any) => state.restaurants.value);
+    const allRestaurants: RestaurantInfo[] = useSelector((state: any) => state.restaurants.allRestaurants);
+    const [restaurantsUI, setRestaurantsUI] = useState<RestaurantInfo[]>(allRestaurants);
     const [underline, setUnderline] = useState('all');
     const [clicked, setClicked] = useState('');
-    const dispatch = useDispatch();
-    let windowSize = SetWindowSize();
-    let desktopView = windowSize >= 600 ? true : false;
-
-
-
-
-
-
-
+    const today = new Date();
+    const day = today.getDay();
+    let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(); console.log(time);
+    console.log(time);
     function filterRestaurants(buttonId: string) {
-        var filterdRes = restaurantData.filter(restaurant => {
-            if (buttonId == 'all') return restaurantData;
-            if (buttonId == 'new') return restaurant.newRes == true;
-            if (buttonId == 'popular') return restaurant.popular == true;
-            if (buttonId == 'open') return restaurant.status == 'open';
+        let filterdRes = allRestaurants.filter((restaurant: RestaurantInfo) => {
+            if (buttonId === 'all') return allRestaurants;
+            if (buttonId === 'new') return restaurant.newRes === true;
+            if (buttonId === 'popular') return restaurant.popular === true;
+            if (buttonId === 'open') return restaurant.status === 'Open now';
         });
-        dispatch(setRestaurants(filterdRes));
+        setRestaurantsUI(filterdRes);
     }
 
+    useEffect(() => {
+        restaurantsUI?.length > 0 ? setRestaurantsUI(restaurantsUI) : setRestaurantsUI(allRestaurants)
+
+    })
 
 
 
@@ -65,10 +62,10 @@ export default function AllRestaurantsPage() {
                 </SecondBar>
 
             </DesktopSecondBar>
-            {underline == 'map' && <Map src="Images/map.svg" alt="map" />}
-            {underline != 'map' && <Res_Cards>
-                {restaurantsUI.map((element: any) =>
-                    <RestaurantCard chefResComponent={false} allResPage={true} restaurantInfo={{ img_path: element.img_path, restaurantName: element.restaurantName, chefName: element.chefName, stars: element.stars }} />
+            {underline === 'map' && <Map src="Images/map.svg" alt="map" />}
+            {underline !== 'map' && <Res_Cards>
+                {restaurantsUI.map((element, key) =>
+                    <RestaurantCard key={key} chefResComponent={false} allResPage={true} restaurantInfo={{ img_path: element.img_path, restaurantName: element.restaurantName, chefName: element.chefName, stars: element.stars }} />
                 )}
 
             </Res_Cards>

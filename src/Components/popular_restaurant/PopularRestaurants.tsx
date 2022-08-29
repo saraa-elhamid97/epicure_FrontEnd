@@ -5,8 +5,8 @@ import { useNavigate } from 'react-router-dom'
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import SetWindowSize from '../../helpers/SetWindowSize'
-import { mobilePopRes } from '../../helpers/MobileFunctions'
-import { desktopPopRes } from '../../helpers/DesktopFunction'
+import { MobilePopRes } from '../../helpers/MobileFunctions'
+import { DesktopPopRes } from '../../helpers/DesktopFunction'
 
 
 
@@ -20,7 +20,7 @@ export default function PopularRestaurants() {
     const navigate = useNavigate();
 
     function navigateToRestaurantsPage() {
-        navigate('restaurantsPage');
+        navigate('/restaurantsPage');
         window.scrollTo(0, 0);
 
     }
@@ -33,8 +33,9 @@ export default function PopularRestaurants() {
     return (
         <RestaurantsContainer>
             <PopRes>popular restaurant in epicure:</PopRes>
-            {desktopView && desktopPopRes()}
-            {!desktopView && mobilePopRes()}
+            <>
+                {desktopView ? DesktopPopRes() : MobilePopRes()}
+            </>
             <GoToAllRes onClick={navigateToRestaurantsPage}>
                 <AllRes>All Restaurants   </AllRes>
                 <Img src="Images/Vector.svg" alt="vector" />

@@ -1,8 +1,8 @@
 import React from 'react'
 import { DishContainer, SigDish } from './SignatureDishesStyle';
 import SetWindowSize from '../../helpers/SetWindowSize'
-import { desktopDishes } from '../../helpers/DesktopFunction';
-import { mobileDishes } from '../../helpers/MobileFunctions';
+import { DesktopDishes } from '../../helpers/DesktopFunction';
+import { MobileDishes } from '../../helpers/MobileFunctions';
 
 
 export default function SignatureDishes() {
@@ -11,7 +11,8 @@ export default function SignatureDishes() {
     return (
         <DishContainer>
             <SigDish>Signature Dish Of:</SigDish>
-            {desktopView && desktopDishes()}
-            {!desktopView && mobileDishes()}
+            <>
+                {desktopView ? DesktopDishes() : MobileDishes()}
+            </>
         </DishContainer>)
 }

@@ -67,33 +67,33 @@ padding-left: 2%;
 `
 
 export const AllButton = styled(Button) <ButtonProps>`
-text-decoration: ${props => props.underline == 'all' ? 'underline' : 'none'};
-text-decoration-color: ${props => props.underline == 'all' ? 'rgba(222, 146, 0, 0.9)' : 'none'};
-font-weight: ${props => props.underline == 'all' ? 'bold' : 'normal'};
+text-decoration: ${props => props.underline === 'all' ? 'underline' : 'none'};
+text-decoration-color: ${props => props.underline === 'all' ? 'rgba(222, 146, 0, 0.9)' : 'none'};
+font-weight: ${props => props.underline === 'all' ? 'bold' : 'normal'};
 @media (min-width: 600px) {
     text-decoration:none;
 }
 `
 export const NewButton = styled(Button) <ButtonProps>`
-text-decoration: ${props => props.underline == 'new' ? 'underline' : 'none'};
-text-decoration-color: ${props => props.underline == 'new' ? 'rgba(222, 146, 0, 0.9)' : 'none'};
-font-weight: ${props => props.underline == 'new' ? 'bold' : 'normal'};
+text-decoration: ${props => props.underline === 'new' ? 'underline' : 'none'};
+text-decoration-color: ${props => props.underline === 'new' ? 'rgba(222, 146, 0, 0.9)' : 'none'};
+font-weight: ${props => props.underline === 'new' ? 'bold' : 'normal'};
 @media (min-width: 600px) {
     text-decoration:none;
 }
 `
 export const PopularButton = styled(Button) <ButtonProps>`
-text-decoration: ${props => props.underline == 'popular' ? 'underline' : 'none'};
-text-decoration-color: ${props => props.underline == 'popular' ? 'rgba(222, 146, 0, 0.9)' : 'none'};
-font-weight: ${props => props.underline == 'popular' ? 'bold' : 'normal'};
+text-decoration: ${props => props.underline === 'popular' ? 'underline' : 'none'};
+text-decoration-color: ${props => props.underline === 'popular' ? 'rgba(222, 146, 0, 0.9)' : 'none'};
+font-weight: ${props => props.underline === 'popular' ? 'bold' : 'normal'};
 @media (min-width: 600px) {
     text-decoration:none;
 }
 `
 export const OpenButton = styled(Button) <ButtonProps>`
-text-decoration: ${props => props.underline == 'open' ? 'underline' : 'none'};
-text-decoration-color: ${props => props.underline == 'open' ? 'rgba(222, 146, 0, 0.9)' : 'none'};
-font-weight: ${props => props.underline == 'open' ? 'bold' : 'normal'};
+text-decoration: ${props => props.underline === 'open' ? 'underline' : 'none'};
+text-decoration-color: ${props => props.underline === 'open' ? 'rgba(222, 146, 0, 0.9)' : 'none'};
+font-weight: ${props => props.underline === 'open' ? 'bold' : 'normal'};
 @media (min-width: 600px) {
     text-decoration:none;
 }
@@ -103,7 +103,7 @@ export const MapButton = styled(Button) <ButtonProps>`
 display:none;
 @media (min-width: 600px) {
     display:unset;
-    font-weight: ${props => props.underline == 'map' ? 'bold' : 'normal'};
+    font-weight: ${props => props.underline === 'map' ? 'bold' : 'normal'};
 }
 `
 export const Res_Cards = styled(ResCards)``
@@ -138,14 +138,14 @@ display: flex;
     cursor:pointer;
 `
 export const PriceRange = styled(BarElementStyle) <ButtonProps>`
-    ${props => props.clicked == 'price' && 'background-color: #D0CFCF;'};
+    ${props => props.clicked === 'price' && 'background-color: #D0CFCF;'};
 `
 
 export const Distance = styled(BarElementStyle) <ButtonProps>`
-${props => props.clicked == 'distance' && 'background-color: #D0CFCF;'};
+${props => props.clicked === 'distance' && 'background-color: #D0CFCF;'};
 `
 export const Rating = styled(BarElementStyle) <ButtonProps>`
-${props => props.clicked == 'rating' && 'background-color: #D0CFCF;'};
+${props => props.clicked === 'rating' && 'background-color: #D0CFCF;'};
 `
 
 

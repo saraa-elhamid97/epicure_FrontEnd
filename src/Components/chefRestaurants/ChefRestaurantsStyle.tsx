@@ -14,6 +14,6 @@ margin: 0 8.8%;
 }
 `
 
-export const DesktopChefRes = styled(DesktopRes)`
+export const DeskChefRes = styled(DesktopRes)`
     margin: 0;
 `

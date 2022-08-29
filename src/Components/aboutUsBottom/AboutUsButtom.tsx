@@ -1,5 +1,5 @@
 import React from 'react'
-import { Break, Div } from '../../LayoutStyle'
+import { Break } from '../../LayoutStyle'
 import { Logo, Install_AboutUs, LogoMobile, LogoDesktop, Gplay_AppStore, Container, GooglePlay, AppStore, GetIt, GpImg, AppStoreImg, AboutUs, Bio, About_us, Install, Info } from './AboutUsButtomStyle'
 
 export default function AboutUsButtom() {

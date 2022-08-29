@@ -85,36 +85,36 @@ export const restaurantData: RestaurantInfo[] = [
 ]
 
 
-export const dishData: DishInfo[] = [
-    {
-        img_path: 'Images/claro.svg',
-        dishName: 'Pad Ki Mao',
-        ingredients: 'Shrimps, Glass Noodles, Kemiri Nuts, Shallots, Lemon Grass, Magic Chili Brown Coconut',
-        type_img: 'Images/SpicySmall.svg',
-        price: 88,
-    },
-    {
-        img_path: 'Images/Onza.svg',
-        dishName: 'Garbanzo Frito',
-        ingredients: 'Polenta fingers, veal cheek, magic chili cured lemon cream, yellow laksa',
-        type_img: 'Images/VeganSmall.svg',
-        price: 78,
-    },
-    {
-        img_path: 'Images/claro.svg',
-        dishName: 'Smoked Pizza',
-        ingredients: 'Basil dough, cashew "butter", demi-glace, bison & radish',
-        type_img: 'Images/VegetarianSmall.svg',
-        price: 90,
-    },
-    {
-        img_path: 'Images/Onza.svg',
-        dishName: 'Pad Ki Mao',
-        ingredients: 'Shrimps, Glass Noodles, Kemiri Nuts, Shallots, Lemon Grass, Magic Chili Brown Coconut',
-        type_img: 'Images/SpicySmall.svg',
-        price: 88,
-    },
-]
+// export const dishData: DishInfo[] = [
+//     {
+//         img_path: 'Images/claro.svg',
+//         dishName: 'Pad Ki Mao',
+//         ingredients: 'Shrimps, Glass Noodles, Kemiri Nuts, Shallots, Lemon Grass, Magic Chili Brown Coconut',
+//         type_img: 'Images/SpicySmall.svg',
+//         price: 88,
+//     },
+//     {
+//         img_path: 'Images/Onza.svg',
+//         dishName: 'Garbanzo Frito',
+//         ingredients: 'Polenta fingers, veal cheek, magic chili cured lemon cream, yellow laksa',
+//         type_img: 'Images/VeganSmall.svg',
+//         price: 78,
+//     },
+//     {
+//         img_path: 'Images/claro.svg',
+//         dishName: 'Smoked Pizza',
+//         ingredients: 'Basil dough, cashew "butter", demi-glace, bison & radish',
+//         type_img: 'Images/VegetarianSmall.svg',
+//         price: 90,
+//     },
+//     {
+//         img_path: 'Images/Onza.svg',
+//         dishName: 'Pad Ki Mao',
+//         ingredients: 'Shrimps, Glass Noodles, Kemiri Nuts, Shallots, Lemon Grass, Magic Chili Brown Coconut',
+//         type_img: 'Images/SpicySmall.svg',
+//         price: 88,
+//     },
+// ]
 
 
 export const chefRes: RestaurantInfo[] = [

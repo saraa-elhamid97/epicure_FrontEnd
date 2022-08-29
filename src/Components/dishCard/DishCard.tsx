@@ -1,7 +1,7 @@
 import React from 'react'
 import { Img } from '../../LayoutStyle'
 import { DishInfo } from '../../interfaces'
-import { ShekelDesktop, Line, DeskPrice, Dishcard, DishName, Ingredients, DishData, Price, PriceTag, DishImg } from './DishCardStyle'
+import { Dishcard, DishName, Ingredients, DishData, DishImg } from './DishCardStyle'
 import SetWindowSize from '../../helpers/SetWindowSize'
 import { desktopPrice } from '../../helpers/DesktopFunction'
 import { mobilePrice } from '../../helpers/MobileFunctions'

@@ -1,18 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { restaurantData } from "../../constants";
+
 export const restaurantsSlice = createSlice({
     name: 'restaurants',
     initialState: {
-        value: restaurantData,
+        allRestaurants: [],
     },
     reducers: {
         setRestaurants: (state, action) => {
             return {
                 ...state,
-                value: action.payload
+                allRestaurants: action.payload
             };
 
-        }
+        },
+
     }
 })
 

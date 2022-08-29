@@ -3,6 +3,7 @@ export interface ButtonProps {
     underline?: string;
     clicked?: string;
 }
+
 export interface RestaurantInfo {
     img_path: string,
     restaurantName: string,
@@ -10,7 +11,8 @@ export interface RestaurantInfo {
     status?: string,
     newRes?: boolean,
     popular?: boolean,
-    stars?: number
+    stars?: number,
+    dishes?: []
 }
 export interface ResInfoToShow {
     chefResComponent: boolean,
@@ -30,11 +32,13 @@ export interface allResPage {
 }
 
 export interface DishInfo {
+    restaurantName?: string,
     img_path: string,
     dishName: string,
     ingredients: string,
     type_img: string,
-    price: number
+    price: number,
+    meal?: string,
 }
 export interface StarsNumber {
     starsNumber: number

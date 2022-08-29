@@ -4,8 +4,8 @@ import { Img } from '../../LayoutStyle'
 import { AllRes, GoToAllRes } from '../popular_restaurant/PopularRestaurantsStyle'
 import { ChefRes, RestaurantsContainer } from './ChefRestaurantsStyle'
 import SetWindowSize from '../../helpers/SetWindowSize'
-import { desktopChefRes } from '../../helpers/DesktopFunction'
-import { mobileChefRes } from '../../helpers/MobileFunctions'
+import { DesktopChefRes } from '../../helpers/DesktopFunction'
+import { MobileChefRes } from '../../helpers/MobileFunctions'
 
 
 
@@ -18,7 +18,7 @@ export default function ChefRestaurants() {
     const navigate = useNavigate();
 
     function navigateToRestaurantsPage() {
-        navigate('restaurantsPage');
+        navigate('/restaurantsPage');
         window.scrollTo(0, 0);
     }
 
@@ -27,8 +27,7 @@ export default function ChefRestaurants() {
     return (
         <RestaurantsContainer>
             <ChefRes>Chef’s Restaurants</ChefRes>
-            {desktopView && desktopChefRes()}
-            {!desktopView && mobileChefRes()}
+            {desktopView ? DesktopChefRes() : MobileChefRes()}
             <GoToAllRes onClick={navigateToRestaurantsPage}>
                 {!desktopView && <AllRes>All Restaurants   </AllRes>}
                 {!desktopView && <Img src="Images/Vector.svg" alt="vector" />}

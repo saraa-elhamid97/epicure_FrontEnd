@@ -23,8 +23,8 @@ export default function Stars(props: StarsNumber) {
     return (
         <Star>
             {
-                resStars.map(element =>
-                    <Div><img src={element} alt="stars" /></Div>
+                resStars.map((element, key) =>
+                    <Div key={key}><img src={element} alt="stars" /></Div>
                 )
             }
         </Star>

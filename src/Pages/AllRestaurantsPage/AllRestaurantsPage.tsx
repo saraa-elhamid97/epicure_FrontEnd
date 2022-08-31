@@ -61,7 +61,7 @@ export default function AllRestaurantsPage() {
             {underline === 'map' && <Map src="Images/map.svg" alt="map" />}
             {underline !== 'map' && <Res_Cards>
                 {restaurantsUI.map((element, key) =>
-                    <RestaurantCard key={key} chefResComponent={false} allResPage={true} restaurantInfo={{ img_path: element.img_path, restaurantName: element.restaurantName, chefName: element.chefName, stars: element.stars }} />
+                    <RestaurantCard key={key} chefResComponent={false} allResPage={true} restaurantInfo={{ img_path: element.img_path, heroImg: element.heroImg, restaurantName: element.restaurantName, chefName: element.chefName, stars: element.stars, status: element.status }} />
                 )}
 
             </Res_Cards>

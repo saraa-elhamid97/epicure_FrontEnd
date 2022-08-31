@@ -20,16 +20,23 @@ export default function Header() {
 
     const navigate = useNavigate();
 
-    function navigateToHomePage() {
-        navigate('/');
-        window.scrollTo(0, 0);
-    }
-    function navigateToRestaurantsPage() {
-        navigate('/restaurantsPage');
+    // function navigateToHomePage() {
+    //     navigate('/');
+    //     window.scrollTo(0, 0);
+    // }
+    // function navigateToRestaurantsPage() {
+    //     navigate('/restaurantsPage');
+    //     window.scrollTo(0, 0);
+
+    // }
+
+    function navigateToRelativePage(pageName: string) {
+        if (pageName === 'restaurants') navigate('/restaurantsPage');
+        if (pageName === 'home') navigate('/');
+        if (pageName === 'chefs') navigate('/chefsPage');
         window.scrollTo(0, 0);
 
     }
-
     return (
         <Div>
             {!desktopView && <MobileHeader />}
@@ -39,20 +46,22 @@ export default function Header() {
                         <LeftHeader>
                             <Div>
                                 <Button onClick={() => {
-                                    navigateToHomePage();
+                                    navigateToRelativePage('home');
                                     setUnderline('');
                                 }}><Logo_icon src="Images/Logo.jpg" alt="logo" /></Button>
                             </Div>
                             <Epicure onClick={() => {
-                                navigateToHomePage();
+                                navigateToRelativePage('home');
                                 setUnderline('');
                             }}>EPICURE</Epicure>
                             <Restaurants underline={underline} onClick={() => {
-                                navigateToRestaurantsPage();
+                                navigateToRelativePage('restaurants');
                                 setOpenSearch(false);
                                 setUnderline('res');
                             }}>Restaurants</Restaurants>
                             <Chefs underline={underline} onClick={() => {
+                                navigateToRelativePage('chefs');
+                                setOpenSearch(false);
                                 setUnderline('chefs')
                             }}>Chefs</Chefs>
                         </LeftHeader>

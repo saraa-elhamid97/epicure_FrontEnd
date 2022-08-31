@@ -2,8 +2,8 @@ import Slider from 'react-slick'
 import { settings } from '../constants'
 import RestaurantCard from '../Components/restaurantCard/RestaurantCard'
 import { Img } from '../LayoutStyle'
-import { Price, PriceTag } from '../Components/dishCard/DishCardStyle'
-import { DishInfo, RestaurantInfo } from '../interfaces'
+import { Line, Price, PriceTag } from '../Components/dishCard/DishCardStyle'
+import { DishInfoToShow, RestaurantInfo, DishInfo } from '../interfaces'
 import DishCard from '../Components/dishCard/DishCard';
 import { useSelector } from 'react-redux'
 
@@ -17,10 +17,11 @@ export function MobileChefRes() {
         )}        </Slider>
 }
 
-export function mobilePrice(props: DishInfo) {
+export function mobilePrice(props: DishInfoToShow) {
     return <PriceTag>
         <Img src="Images/shekel.svg" alt="shekel icon" />
-        <Price>{props.price}</Price>
+        <Price>{props.dishInfo.price}</Price>
+        {props.dishesInRestaurantProfile && <Line></Line>}
     </PriceTag>
 }
 
@@ -38,7 +39,7 @@ export function MobileDishes() {
     const dishes: DishInfo[] = useSelector((state: any) => state.dishes.allDishes);
     return <Slider {...settings}>
         {dishes.slice(0, 5).map((element, key) =>
-            <DishCard key={key} img_path={element.img_path} dishName={element.dishName} ingredients={element.ingredients} type_img={element.type_img} price={element.price} />
+            <DishCard key={key} dishesInRestaurantProfile={false} dishInfo={{ img_path: element.img_path, dishName: element.dishName, ingredients: element.ingredients, type_img: element.type_img, price: element.price }} />
         )}
     </Slider>
 }

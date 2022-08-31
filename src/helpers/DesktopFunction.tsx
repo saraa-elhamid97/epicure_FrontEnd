@@ -32,7 +32,7 @@ export function DesktopPopRes() {
     let popularRes = allrestaurants.filter(element => element.popular);
     return <DesktopRes>
         {popularRes.slice(0, 3).map((element, key) =>
-            <RestaurantCard key={key} chefResComponent={false} allResPage={false} restaurantInfo={{ img_path: element.img_path, restaurantName: element.restaurantName, chefName: element.chefName, stars: element.stars, status: element.status, dishes: element.dishes }} />
+            <RestaurantCard key={key} chefResComponent={false} allResPage={false} restaurantInfo={{ img_path: element.img_path, restaurantName: element.restaurantName, chefName: element.chefName, stars: element.stars, status: element.status, dishes: element.dishes, heroImg: element.heroImg }} />
         )}
     </DesktopRes>
 
@@ -42,7 +42,7 @@ export function DesktopDishes() {
     const dishes: DishInfo[] = useSelector((state: any) => state.dishes.allDishes);
     return <Desktop_Dishes>
         {dishes.slice(0, 3).map((element, key) =>
-            <DishCard key={key} img_path={element.img_path} dishName={element.dishName} ingredients={element.ingredients} type_img={element.type_img} price={element.price} />
+            <DishCard key={key} dishesInRestaurantProfile={false} dishInfo={{ img_path: element.img_path, dishName: element.dishName, ingredients: element.ingredients, type_img: element.type_img, price: element.price }} />
         )}
     </Desktop_Dishes>
 

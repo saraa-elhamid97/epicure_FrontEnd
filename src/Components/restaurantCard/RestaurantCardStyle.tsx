@@ -21,7 +21,6 @@ margin-top:-1%;
 `
 
 export const ResName = styled.div`
-height: 21px;
 font-family: 'Helvetica Neue';
 font-weight: 400;
 font-size: 18px;
@@ -36,7 +35,6 @@ text-align: center;
 `
 
 export const ChefName = styled.div`
-height: 20px;
 font-family: 'Helvetica Neue';
 font-weight: 200;
 font-size: 16px;

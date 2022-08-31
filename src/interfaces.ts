@@ -12,7 +12,8 @@ export interface RestaurantInfo {
     newRes?: boolean,
     popular?: boolean,
     stars?: number,
-    dishes?: []
+    dishes?: [],
+    heroImg?: string
 }
 export interface ResInfoToShow {
     chefResComponent: boolean,
@@ -26,6 +27,10 @@ export interface UpdateOpen {
 
 export interface chefResComponent {
     chefResComponent: boolean
+}
+
+export interface dishesInRestaurantProfile {
+    dishesInRestaurantProfile: boolean
 }
 export interface allResPage {
     allResPage: boolean
@@ -42,4 +47,17 @@ export interface DishInfo {
 }
 export interface StarsNumber {
     starsNumber: number
+}
+
+export interface DishInfoToShow {
+    dishesInRestaurantProfile: boolean,
+    dishInfo: DishInfo
+}
+
+export interface ChefInfo {
+    name: string,
+    img: string,
+    new: boolean,
+    mostViewed: boolean,
+    restaurants?: []
 }

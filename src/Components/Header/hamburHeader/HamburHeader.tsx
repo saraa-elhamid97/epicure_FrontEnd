@@ -13,11 +13,13 @@ export default function HamburHeader(props: UpdateOpen) {
     const is_clicked = useSelector((state: any) => state.footerClicked.value);
     const dispatch = useDispatch();
 
-    function navigateToRestaurantsPage() {
-        navigate('/restaurantsPage');
+    function navigateToRelativePage(pageName: string) {
+        if (pageName === 'restaurants') navigate('/restaurantsPage');
+        else { navigate('/chefsPage'); }
         window.scrollTo(0, 0);
 
     }
+
 
 
 
@@ -31,10 +33,13 @@ export default function HamburHeader(props: UpdateOpen) {
             <Break />
             <HamburInfo>
                 <Paragraph onClick={() => {
-                    navigateToRestaurantsPage();
+                    navigateToRelativePage('restaurants');
                     props.Open(false);
                 }}>Restaurants</Paragraph>
-                <Paragraph>Chefs</Paragraph>
+                <Paragraph onClick={() => {
+                    navigateToRelativePage('chefs');
+                    props.Open(false);
+                }}>Chefs</Paragraph>
             </HamburInfo>
             <Line></Line>
             <Footer />

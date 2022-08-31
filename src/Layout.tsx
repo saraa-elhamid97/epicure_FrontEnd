@@ -13,6 +13,8 @@ import RestaurantProfile from './Pages/restaurantProfile/RestaurantProfile'
 import { setRestaurants } from './Pages/AllRestaurantsPage/restaurantsSlicer';
 import axios from 'axios'
 import { setDishes } from './Components/signature_dishes/dishesSlicer'
+import { setChefs } from './Pages/chefsPage/chefsSlicer'
+import ChefsPage from './Pages/chefsPage/ChefsPage'
 
 export default function Layout() {
     const dispatch = useDispatch();
@@ -22,8 +24,10 @@ export default function Layout() {
         async function fetchData() {
             const restaurants = await axios.get('http://localhost:3001/api/restaurants/getRestaurants').then(restaurants => restaurants.data);
             const dishes = await axios.get('http://localhost:3001/api/dishes/getDishes').then(dishes => dishes.data);
+            const chefs = await axios.get('http://localhost:3001/api/chefs/getChefs').then(chefs => chefs.data);
             dispatch(setRestaurants(restaurants));
             dispatch(setDishes(dishes));
+            dispatch(setChefs(chefs));
 
         }
         fetchData();
@@ -42,6 +46,8 @@ export default function Layout() {
                     <Route path='contactUs' element={<ContactUs />} />
                     <Route path='TermOfUse' element={<TermOfUse />} />
                     <Route path='PrivacyPolicy' element={<PrivacyPolicy />} />
+                    <Route path='chefsPage' element={<ChefsPage />} />
+
 
                 </Routes>
                 <Footer />

@@ -104,3 +104,11 @@ display: ${props => props.dishesInRestaurantProfile ? 'none' : 'unset'};
     height: 31px;
 }
 `
+
+
+export const NoType = styled.div`
+height: 24px;
+@media(min-width: 600px) {
+    height: 31px;
+}
+`

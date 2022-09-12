@@ -42,4 +42,5 @@ export function MobileDishes() {
             <DishCard key={key} dishesInRestaurantProfile={false} dishInfo={{ img_path: element.img_path, dishName: element.dishName, ingredients: element.ingredients, type_img: element.type_img, price: element.price }} />
         )}
     </Slider>
+
 }

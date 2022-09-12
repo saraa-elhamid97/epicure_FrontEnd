@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { ChefImg } from '../../Components/ChefOfWeek/ChefOfWeekStyle';
+import { Line } from '../../Components/DishProfile/DishProfileStyle';
 import { ChefInfo } from '../../interfaces';
 import { Title, Nav_Bar, ChefName_Img, Chef_Name, ChefsCard, ChefsContainer, AllButton, NewButton, MostViewdButton } from './ChefsPageStyle';
 
@@ -46,6 +47,7 @@ export default function ChefsPage() {
 
             </ChefsCard>
 
+            <Line></Line>
 
         </ChefsContainer>
     )

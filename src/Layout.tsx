@@ -15,6 +15,7 @@ import axios from 'axios'
 import { setDishes } from './Components/signature_dishes/dishesSlicer'
 import { setChefs } from './Pages/chefsPage/chefsSlicer'
 import ChefsPage from './Pages/chefsPage/ChefsPage'
+import DishMobile from './Pages/DishMobile/DishMobile'
 
 export default function Layout() {
     const dispatch = useDispatch();
@@ -47,6 +48,9 @@ export default function Layout() {
                     <Route path='TermOfUse' element={<TermOfUse />} />
                     <Route path='PrivacyPolicy' element={<PrivacyPolicy />} />
                     <Route path='chefsPage' element={<ChefsPage />} />
+                    <Route path='dishMobile' element={<DishMobile />} />
+
+
 
 
                 </Routes>

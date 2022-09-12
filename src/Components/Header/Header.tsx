@@ -1,34 +1,31 @@
 import React, { useState } from 'react'
 import SearchHeader from './searchHeader/SearchHeader'
 import MobileHeader from './mobileHeader/MobileHeader'
-import { LeftHeader, Epicure, Chefs, Restaurants } from './HeaderStyle'
+import { SearchBar, SearchInput, Search_icon, LeftHeader, Epicure, Chefs, Restaurants } from './HeaderStyle'
 import { Button, Div } from '../../LayoutStyle'
-import { Search_icon } from '../Header/searchHeader/SearchStyle'
 import { useNavigate } from 'react-router-dom';
 import SetWindowSize from '../../helpers/SetWindowSize'
 import { RightHeader, HeaderContainer, Logo_icon, Bag_icon, User_icon } from './mobileHeader/MobileHeaderStyle'
+import { useDispatch, useSelector } from 'react-redux'
+import SearchResults from '../SearchResults/SearchResults'
+import { openSearch } from './openSearchSlicer'
 
 
 
 
 
 export default function Header() {
-    const [openSearch, setOpenSearch] = useState(false);
+    //const [openSearch, setOpenSearch] = useState(false);
     const [underline, setUnderline] = useState('');
     let windowSize = SetWindowSize();
     let desktopView = windowSize >= 600 ? true : false;
+    const [updatedSearch, setUpdatedSearch] = useState('');
+    const open_Search = useSelector((state: any) => state.openSearch.value);
+    const dispatch = useDispatch();
 
     const navigate = useNavigate();
 
-    // function navigateToHomePage() {
-    //     navigate('/');
-    //     window.scrollTo(0, 0);
-    // }
-    // function navigateToRestaurantsPage() {
-    //     navigate('/restaurantsPage');
-    //     window.scrollTo(0, 0);
 
-    // }
 
     function navigateToRelativePage(pageName: string) {
         if (pageName === 'restaurants') navigate('/restaurantsPage');
@@ -56,24 +53,37 @@ export default function Header() {
                             }}>EPICURE</Epicure>
                             <Restaurants underline={underline} onClick={() => {
                                 navigateToRelativePage('restaurants');
-                                setOpenSearch(false);
+                                dispatch(openSearch(false));
+                                //setOpenSearch(false);
                                 setUnderline('res');
                             }}>Restaurants</Restaurants>
                             <Chefs underline={underline} onClick={() => {
                                 navigateToRelativePage('chefs');
-                                setOpenSearch(false);
+                                dispatch(openSearch(false));
+                                //setOpenSearch(false);
                                 setUnderline('chefs')
                             }}>Chefs</Chefs>
                         </LeftHeader>
+                        {(open_Search && !desktopView) && <SearchHeader />}
+                        {(open_Search && desktopView) &&
+                            <Div>
+                                <SearchBar>
+                                    <SearchInput type="text" id="search" name="search" placeholder='Search for restaurant cuisine, chef' onChange={(event) => setUpdatedSearch(event.target.value)} />
+                                </SearchBar>
+                                {updatedSearch !== '' && <SearchResults searchInput={updatedSearch} searchInHeader={true} />}
+                            </Div>
+
+                        }
+
                         <RightHeader>
                             <Button onClick={() => {
-                                setOpenSearch(true);
-                                <SearchHeader Open={setOpenSearch} />
+                                setUpdatedSearch('');
+                                dispatch(openSearch(!open_Search));
+                                <SearchHeader />
                             }}><Search_icon src="Images/Search.jpg" alt="search" /></Button>
                             <Button><User_icon src="Images/User.jpg" alt="user" /></Button>
                             <Button><Bag_icon src="Images/Bag.jpg" alt="bag" /></Button>
                         </RightHeader>
-                        {openSearch && <SearchHeader Open={setOpenSearch} />}
                     </HeaderContainer>
                 )
             }

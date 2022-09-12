@@ -4,6 +4,15 @@ export interface ButtonProps {
     clicked?: string;
 }
 
+export interface SearchInput {
+    searchInput: string;
+    searchInHeader: boolean;
+}
+
+export interface SearchInHeader {
+    searchInHeader: boolean;
+}
+
 export interface RestaurantInfo {
     img_path: string,
     restaurantName: string,
@@ -51,7 +60,7 @@ export interface StarsNumber {
 
 export interface DishInfoToShow {
     dishesInRestaurantProfile: boolean,
-    dishInfo: DishInfo
+    dishInfo: DishInfo,
 }
 
 export interface ChefInfo {

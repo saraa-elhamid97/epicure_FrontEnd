@@ -4,6 +4,8 @@ import { Map, Div, Rating, Distance, PriceRange, SecondBar, DesktopSecondBar, Na
 import { useSelector } from 'react-redux'
 import { Img } from '../../LayoutStyle'
 import { RestaurantInfo } from '../../interfaces';
+import { Line } from '../../Components/DishProfile/DishProfileStyle'
+import DishDesktop from '../../Components/DishDesktop/DishDesktop'
 
 
 
@@ -12,6 +14,8 @@ export default function AllRestaurantsPage() {
     const [restaurantsUI, setRestaurantsUI] = useState<RestaurantInfo[]>(allRestaurants);
     const [underline, setUnderline] = useState('all');
     const [clicked, setClicked] = useState('');
+    const openDishProfile = useSelector((state: any) => state.dishes.openDishProfile);
+
     function filterRestaurants(buttonId: string) {
         let filterdRes = allRestaurants.filter((restaurant: RestaurantInfo) => {
             if (buttonId === 'all') return allRestaurants;
@@ -66,6 +70,8 @@ export default function AllRestaurantsPage() {
 
             </Res_Cards>
             }
+            <Line></Line>
+            {openDishProfile && <DishDesktop />}
         </ResContainer >
     )
 }

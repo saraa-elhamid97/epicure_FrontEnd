@@ -11,6 +11,7 @@ import { isClicked } from './footerClickedSlicer';
 export default function HamburHeader(props: UpdateOpen) {
     const navigate = useNavigate();
     const is_clicked = useSelector((state: any) => state.footerClicked.value);
+
     const dispatch = useDispatch();
 
     function navigateToRelativePage(pageName: string) {

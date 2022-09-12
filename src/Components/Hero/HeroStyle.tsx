@@ -27,6 +27,7 @@ justify-content: center;
 display: flex;
 align-items: center;
 left: -140px;
+flex-direction: column;
 
 @media (min-width: 600px) {
     background: url(Images/hero-picture1.svg);
@@ -38,16 +39,12 @@ export const SearchBox = styled.div`
 display: flex;
 flex-direction: column;
 justify-content: center;
-width: 350px;
 height: 144px;
 background: rgba(255,255,255,0.88);
 
 @media (min-width: 600px) {
     gap: 18px;
-    width: 54%;
     height: 221px;
-    margin-left: 23%;
-    margin-right: 23%;
 }
 `
 
@@ -88,4 +85,13 @@ width: 90%;
 
 }
 `
+
+
+export const SearchContainer = styled.div`
+width: 350px;
+@media (min-width: 600px) {
+    width: 54%;
+}
+`
+
 

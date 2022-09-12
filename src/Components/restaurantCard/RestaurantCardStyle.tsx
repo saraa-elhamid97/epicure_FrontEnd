@@ -54,6 +54,7 @@ padding-left: 7%;
         width: ${props => props.allResPage ? '31.94%' : '50%'};
         padding-left: 0;
     padding-bottom: 0;
+    cursor: pointer;
                 }
 `
 

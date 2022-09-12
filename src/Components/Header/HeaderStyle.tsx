@@ -34,12 +34,28 @@ text-decoration-color: ${props => props.underline == 'chefs' ? 'rgba(222, 146, 0
 `
 
 
+export const Search_icon = styled.img`
+`
 
 
 
+export const SearchBar = styled.div`
+box-sizing: border-box;
+display: flex;
+align-items: center;
+padding: 6px 12px;
+height: 30px;
+border: 0.5px solid #000000;
+border-radius: 4px;
+margin-left: 128%;
+    width: 133%;
+`
 
 
 
+export const SearchInput = styled.input`
+    width: 100%;
+    border: none;
+    outline: none;
 
-
-
+`

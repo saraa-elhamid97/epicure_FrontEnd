@@ -5,8 +5,8 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 position: fixed;
-right: 0%;
-left: 0%;
+right: 0;
+left: 0;
 background: white;
 z-index:1;
 height: 46px;
@@ -30,5 +30,9 @@ margin-right: 6%;
     margin-right: 10.6%;
 
 }
+`
+
+export const Container = styled.div`
+
 
 `

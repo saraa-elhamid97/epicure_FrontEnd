@@ -11,6 +11,7 @@ export const Dishcard = styled.div<dishesInRestaurantProfile>`
         width: ${props => props.dishesInRestaurantProfile ? '32%' : '50%'};
         padding-left: 0;
     padding-bottom: 2%;
+    cursor: pointer;
                 }
 
 `

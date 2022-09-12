@@ -50,7 +50,7 @@ export interface DishInfo {
     img_path: string,
     dishName: string,
     ingredients: string,
-    type_img: string,
+    type_img?: string,
     price: number,
     meal?: string,
 }

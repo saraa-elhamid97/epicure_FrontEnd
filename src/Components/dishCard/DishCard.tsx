@@ -1,6 +1,6 @@
 import Reactfrom from 'react'
 import { DishInfoToShow } from '../../interfaces'
-import { Img, Dishcard, DishName, Ingredients, DishData, DishImg } from './DishCardStyle'
+import { Img, Dishcard, DishName, Ingredients, DishData, DishImg, NoType } from './DishCardStyle'
 import SetWindowSize from '../../helpers/SetWindowSize'
 import { desktopPrice } from '../../helpers/DesktopFunction'
 import { mobilePrice } from '../../helpers/MobileFunctions'
@@ -33,7 +33,7 @@ export default function DishCard(props: DishInfoToShow) {
             <DishData dishesInRestaurantProfile={props.dishesInRestaurantProfile}>
                 <DishName>{props.dishInfo.dishName}</DishName>
                 <Ingredients>{props.dishInfo.ingredients}</Ingredients>
-                <Img dishesInRestaurantProfile={props.dishesInRestaurantProfile} src={props.dishInfo.type_img} alt={props.dishInfo.dishName} />
+                {(props.dishInfo.type_img == undefined && props.dishesInRestaurantProfile == false) ? <NoType></NoType> : <Img dishesInRestaurantProfile={props.dishesInRestaurantProfile} src={props.dishInfo.type_img} alt={props.dishInfo.dishName} />}
                 {desktopView && desktopPrice(props.dishInfo)}
                 {!desktopView && mobilePrice(props)}
             </DishData>

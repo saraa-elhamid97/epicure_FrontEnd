@@ -7,14 +7,15 @@ import Hero from '../../Components/Hero/Hero'
 import PopularRestaurants from '../../Components/popular_restaurant/PopularRestaurants'
 import SignatureDishes from '../../Components/signature_dishes/SignatureDishes'
 import Types from '../../Components/types/Types'
+import SetWindowSize from '../../helpers/SetWindowSize'
 import { Div } from '../../LayoutStyle'
 import { HomePageContainer } from './HomePageStyle'
 
 
 export default function HomePage() {
     const openDishProfile = useSelector((state: any) => state.dishes.openDishProfile);
-
-
+    let windowSize = SetWindowSize();
+    console.log(windowSize);
     return (
         <Div>
             <HomePageContainer>

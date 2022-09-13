@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { DishInfo } from '../../interfaces';
 import SetWindowSize from '../../helpers/SetWindowSize'
 import { desktopPrice } from '../../helpers/DesktopFunction';
+import { NoType } from '../dishCard/DishCardStyle';
 
 export default function DishProfile() {
     const dish: DishInfo = useSelector((state: any) => state.dishes.clickedDish);
@@ -20,7 +21,7 @@ export default function DishProfile() {
                 <Dish>
                     <DishName>{dish.dishName}</DishName>
                     <Ingredients>{dish.ingredients}</Ingredients>
-                    {desktopView && <Img src={dish.type_img} alt={dish.dishName} />}
+                    {(dish.type_img == undefined && desktopView) ? <NoType></NoType> : <Img src={dish.type_img} alt={dish.dishName} />}
                     {desktopView && desktopPrice(dish)}
                 </Dish>
 

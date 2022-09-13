@@ -39,7 +39,7 @@ export default function Header() {
             {!desktopView && <MobileHeader />}
             {desktopView &&
                 (
-                    <HeaderContainer id='myID'>
+                    <HeaderContainer id='myID' style={{ maxWidth: '1440px', margin: 'auto' }}>
                         <LeftHeader>
                             <Div>
                                 <Button onClick={() => {

@@ -14,7 +14,7 @@ margin-top:-1%;
 @media (min-width: 600px) {
     justify-content: center;
     align-items: center;
-    padding-bottom: ${props => props.chefResComponent ? '40%' : '24px'};
+    padding-bottom: ${props => props.chefResComponent ? '15%' : '24px'};
     padding-top:24px;
     gap: 20px;
 }

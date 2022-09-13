@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import RestaurantCard from '../../Components/restaurantCard/RestaurantCard'
-import { Map, Div, Rating, Distance, PriceRange, SecondBar, DesktopSecondBar, NavBar, ResContainer, Title, MapButton, Res_Cards, AllButton, OpenButton, NewButton, PopularButton } from './AllRestaurantsPageStyle'
+import { Map, Div, Rating, Distance, Price_Range, SecondBar, DesktopSecondBar, NavBar, ResContainer, Title, MapButton, Res_Cards, AllButton, OpenButton, NewButton, PopularButton } from './AllRestaurantsPageStyle'
 import { useSelector } from 'react-redux'
 import { Img } from '../../LayoutStyle'
 import { RestaurantInfo } from '../../interfaces';
 import { Line } from '../../Components/DishProfile/DishProfileStyle'
 import DishDesktop from '../../Components/DishDesktop/DishDesktop'
+import PriceRange from '../../Components/PriceRange/PriceRange'
 
 
 
@@ -47,10 +48,11 @@ export default function AllRestaurantsPage() {
             </NavBar>
             <DesktopSecondBar>
                 <SecondBar>
-                    <PriceRange clicked={clicked} onClick={() => setClicked('price')}>
+                    <Price_Range clicked={clicked} onClick={() => setClicked('price')}>
                         <Div>Price Range</Div>
                         <Img src="Images/oneVector.svg" alt="vector" />
-                    </PriceRange>
+                    </Price_Range>
+                    {clicked == 'price' && <PriceRange />}
                     <Distance clicked={clicked} onClick={() => setClicked('distance')}>
                         <Div>Distance</Div>
                         <Img src="Images/oneVector.svg" alt="vector" />
@@ -60,6 +62,7 @@ export default function AllRestaurantsPage() {
                         <Img src="Images/oneVector.svg" alt="vector" />
                     </Rating>
                 </SecondBar>
+
 
             </DesktopSecondBar>
             {underline === 'map' && <Map src="Images/map.svg" alt="map" />}

@@ -28,12 +28,12 @@ export default function SearchResults(props: SearchInput) {
 
     }
     return (
-        <SearchRes searchInHeader={props.searchInHeader}>
+        <SearchRes searchInHeader={props.searchInHeader} style={{ maxWidth: '777.6px', margin: 'auto' }}>
             {searchedRestaurants.length > 0 && <Restaurants searchInHeader={props.searchInHeader}>
                 <Category>Restaurants:</Category>
                 <Restaurant>
                     {searchedRestaurants.slice(0, 3).map((element, key) =>
-                        <Element searchInHeader={props.searchInHeader} onClick={() => {
+                        <Element key={key} searchInHeader={props.searchInHeader} onClick={() => {
                             navigateToRestaurantProfile(element);
                             dispatch(openSearch(false));
                         }} >{element.restaurantName}</Element>
@@ -46,7 +46,7 @@ export default function SearchResults(props: SearchInput) {
                 <Dish>
                     {searchedDishes.slice(0, 3).map((element, key) =>
 
-                        <Element searchInHeader={props.searchInHeader} onClick={() => {
+                        <Element key={key} searchInHeader={props.searchInHeader} onClick={() => {
                             dispatch(setClickedDish(element));
                             dispatch(openSearch(false));
                             if (desktopView) {

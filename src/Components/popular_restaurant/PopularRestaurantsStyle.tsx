@@ -48,7 +48,7 @@ cursor: pointer;
 export const DesktopRes = styled.div`
 display: flex;
 gap: 24px;
-width: 52%;
+/* width: 52%; */
     margin: 0 8.8%;
 
 `

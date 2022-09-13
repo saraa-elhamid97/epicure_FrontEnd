@@ -137,7 +137,7 @@ display: flex;
     letter-spacing: 1.92px;
     cursor:pointer;
 `
-export const PriceRange = styled(BarElementStyle) <ButtonProps>`
+export const Price_Range = styled(BarElementStyle) <ButtonProps>`
     ${props => props.clicked === 'price' && 'background-color: #D0CFCF;'};
 `
 

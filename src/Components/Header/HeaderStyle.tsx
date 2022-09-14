@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { ButtonProps } from '../../interfaces'
 
 export const LeftHeader = styled.div`
 display: flex;
@@ -20,17 +19,22 @@ letter-spacing: 1.35px;
     cursor: pointer;
 }`
 
-export const Restaurants = styled(Epicure) <ButtonProps>`
+export const UnderLineRestaurants = styled(Epicure)`
 height: 22px;
 font-size: 18px;
 line-height: 22px;
 letter-spacing: 1.92px;
-text-decoration: ${props => props.underline == 'res' ? 'underline' : 'none'};
-text-decoration-color: ${props => props.underline == 'res' ? 'rgba(222, 146, 0, 0.9)' : 'none'};
+text-decoration: underline;
+text-decoration-color: rgba(222, 146, 0, 0.9);
 `
-export const Chefs = styled(Restaurants) <ButtonProps>`
-text-decoration: ${props => props.underline == 'chefs' ? 'underline' : 'none'};
-text-decoration-color: ${props => props.underline == 'chefs' ? 'rgba(222, 146, 0, 0.9)' : 'none'};
+
+export const Restaurants = styled(UnderLineRestaurants)`
+text-decoration: none;
+text-decoration-color: none;
+`
+export const UnderLineChefs = styled(UnderLineRestaurants)`
+`
+export const Chefs = styled(Restaurants)`
 `
 
 

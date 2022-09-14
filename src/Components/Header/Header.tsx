@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import SearchHeader from './searchHeader/SearchHeader'
 import MobileHeader from './mobileHeader/MobileHeader'
-import { SearchBar, SearchInput, Search_icon, LeftHeader, Epicure, Chefs, Restaurants } from './HeaderStyle'
+import { SearchBar, SearchInput, Search_icon, LeftHeader, Epicure, Chefs, Restaurants, UnderLineRestaurants, UnderLineChefs } from './HeaderStyle'
 import { Button, Div } from '../../LayoutStyle'
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import SetWindowSize from '../../helpers/SetWindowSize'
 import { RightHeader, HeaderContainer, Logo_icon, Bag_icon, User_icon } from './mobileHeader/MobileHeaderStyle'
 import { useDispatch, useSelector } from 'react-redux'
@@ -15,8 +15,7 @@ import { openSearch } from './openSearchSlicer'
 
 
 export default function Header() {
-    //const [openSearch, setOpenSearch] = useState(false);
-    const [underline, setUnderline] = useState('');
+    const location = useLocation();
     let windowSize = SetWindowSize();
     let desktopView = windowSize >= 600 ? true : false;
     const [updatedSearch, setUpdatedSearch] = useState('');
@@ -44,25 +43,26 @@ export default function Header() {
                             <Div>
                                 <Button onClick={() => {
                                     navigateToRelativePage('home');
-                                    setUnderline('');
                                 }}><Logo_icon src="Images/Logo.jpg" alt="logo" /></Button>
                             </Div>
                             <Epicure onClick={() => {
                                 navigateToRelativePage('home');
-                                setUnderline('');
                             }}>EPICURE</Epicure>
-                            <Restaurants underline={underline} onClick={() => {
+                            {location.pathname === '/restaurantsPage' ? <UnderLineRestaurants onClick={() => {
                                 navigateToRelativePage('restaurants');
                                 dispatch(openSearch(false));
-                                //setOpenSearch(false);
-                                setUnderline('res');
-                            }}>Restaurants</Restaurants>
-                            <Chefs underline={underline} onClick={() => {
+                            }}>Restaurants</UnderLineRestaurants> : <Restaurants onClick={() => {
+                                navigateToRelativePage('restaurants');
+                                dispatch(openSearch(false));
+                            }}>Restaurants</Restaurants>}
+
+                            {location.pathname === '/chefsPage' ? <UnderLineChefs onClick={() => {
                                 navigateToRelativePage('chefs');
                                 dispatch(openSearch(false));
-                                //setOpenSearch(false);
-                                setUnderline('chefs')
-                            }}>Chefs</Chefs>
+                            }}>Chefs</UnderLineChefs> : <Chefs onClick={() => {
+                                navigateToRelativePage('chefs');
+                                dispatch(openSearch(false));
+                            }}>Chefs</Chefs>}
                         </LeftHeader>
                         {(open_Search && !desktopView) && <SearchHeader />}
                         {(open_Search && desktopView) &&

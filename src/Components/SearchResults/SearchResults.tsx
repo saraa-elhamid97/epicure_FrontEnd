@@ -28,7 +28,7 @@ export default function SearchResults(props: SearchInput) {
 
     }
     return (
-        <SearchRes searchInHeader={props.searchInHeader} style={{ maxWidth: '777.6px', margin: 'auto' }}>
+        <SearchRes searchInHeader={props.searchInHeader} style={{ maxWidth: '777.6px' }}>
             {searchedRestaurants.length > 0 && <Restaurants searchInHeader={props.searchInHeader}>
                 <Category>Restaurants:</Category>
                 <Restaurant>

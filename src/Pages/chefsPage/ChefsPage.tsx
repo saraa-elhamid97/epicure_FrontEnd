@@ -39,7 +39,7 @@ export default function ChefsPage() {
             <ChefsCard>
 
                 {chefsUI.map((element, key) => (
-                    <ChefName_Img>
+                    <ChefName_Img key={key}>
                         <ChefImg src={element.img} alt={element.name} />
                         <Chef_Name >{element.name}</Chef_Name>
                     </ChefName_Img>

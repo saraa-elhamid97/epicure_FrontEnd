@@ -1,5 +1,17 @@
 import styled from "styled-components";
+import { styled as muiStyled } from '@mui/material/styles';
+import Slider from '@mui/material/Slider';
 
+
+export const CustomizedSlider = muiStyled(Slider)`
+color: #97979780;
+width: 90%;
+    margin: 0 5%;
+
+  & .MuiSlider-thumb {
+    color: black;
+  } 
+`
 
 export const PriceRangeContainer = styled.div`
     position: absolute;

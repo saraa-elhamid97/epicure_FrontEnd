@@ -1,20 +1,9 @@
 import React, { useState } from 'react'
-import { styled } from '@mui/material/styles';
-import Slider from '@mui/material/Slider';
 import { MaxDistance } from '../../constants';
-import { SliderWrapper, Clear, P, SelectedRange, SliderValue } from '../PriceRange/PriceRangeStyle';
-import { Div } from '../../LayoutStyle';
+import { SliderWrapper, Clear, P, SelectedRange, SliderValue, CustomizedSlider } from '../PriceRange/PriceRangeStyle';
 import { Distance, DistanceRangeContainer, DistanceValue, Km, Location, SelectedLocation } from './DistanceRangeStyle';
 
-const CustomizedSlider = styled(Slider)`
-color: #97979780;
-width: 90%;
-    margin: 0 5%;
 
-  & .MuiSlider-thumb {
-    color: black;
-  } 
-`;
 
 export default function DistanceRange() {
     const [range, SetRange] = useState<number>(MaxDistance);

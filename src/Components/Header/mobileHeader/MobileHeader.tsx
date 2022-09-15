@@ -7,6 +7,7 @@ import { Search_icon } from '../searchHeader/SearchStyle'
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { openSearch } from '../openSearchSlicer';
+import HeaderSignIn from '../HeaderSignIn';
 
 
 
@@ -14,7 +15,7 @@ import { openSearch } from '../openSearchSlicer';
 
 
 export default function Header() {
-    //const [openSearch, setOpenSearch] = useState(false);
+    const [openHeaderSignIn, setOpenHeaderSignIn] = useState(false);
     const [openHambur, setOpenHambur] = useState(false);
     const navigate = useNavigate();
 
@@ -29,7 +30,8 @@ export default function Header() {
         <Container>
             {open_Search && <SearchHeader />}
             {openHambur && <HamburHeader Open={setOpenHambur} />}
-            {!openHambur && !open_Search &&
+            {openHeaderSignIn && <HeaderSignIn Open={setOpenHeaderSignIn} />}
+            {!openHambur && !open_Search && !openHeaderSignIn &&
                 (
                     <HeaderContainer id='myID'>
                         <Div>
@@ -40,7 +42,7 @@ export default function Header() {
                         </Div>
                         <RightHeader>
                             <Button onClick={() => dispatch(openSearch(true))}><Search_icon src="Images/Search.jpg" alt="search" /></Button>
-                            <Button><User_icon src="Images/User.jpg" alt="user" /></Button>
+                            <Button onClick={() => setOpenHeaderSignIn(true)}><User_icon src="Images/User.jpg" alt="user" /></Button>
                             <Button><Bag_icon src="Images/Bag.jpg" alt="bag" /></Button>
                         </RightHeader>
                     </HeaderContainer>

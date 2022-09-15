@@ -54,10 +54,11 @@ export default function PriceRange() {
                         onChange={(e, newRange) => SetRange(newRange as number[])}
                         getAriaLabel={() => 'Tempratue range'}
                         min={MinPrice}
-                        max={MaxPrice} />
+                        max={MaxPrice}
+                        disableSwap />
                 </SliderWrapper>
             </SliderValue>
-            <Clear onClick={() => SetRange([MinPrice, MaxPrice])}><P>Clear</P></Clear>
+            {(MinPrice < range[0] || range[1] < MaxPrice) && <Clear onClick={() => SetRange([MinPrice, MaxPrice])}><P>Clear</P></Clear>}
         </PriceRangeContainer>
     )
 }

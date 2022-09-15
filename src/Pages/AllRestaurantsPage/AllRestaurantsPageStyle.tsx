@@ -144,7 +144,7 @@ export const Price_Range = styled(BarElementStyle) <ButtonProps>`
 export const Distance = styled(BarElementStyle) <ButtonProps>`
 ${props => props.clicked === 'distance' && 'background-color: #D0CFCF;'};
 `
-export const Rating = styled(BarElementStyle) <ButtonProps>`
+export const RatinG = styled(BarElementStyle) <ButtonProps>`
 ${props => props.clicked === 'rating' && 'background-color: #D0CFCF;'};
 `
 

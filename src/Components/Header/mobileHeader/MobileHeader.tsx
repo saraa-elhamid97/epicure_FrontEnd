@@ -8,17 +8,18 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { openSearch } from '../openSearchSlicer';
 import HeaderSignIn from '../HeaderSignIn';
-
+import HeaderSignUp from '../HeaderSignUp';
+import { setOpenSignIn } from '../SingInStateSlice';
 
 
 
 
 
 export default function Header() {
-    const [openHeaderSignIn, setOpenHeaderSignIn] = useState(false);
+    const openHeaderSignIn = useSelector((state: any) => state.signinstate.value);
+    const openHeaderSignUp = useSelector((state: any) => state.signupstate.value);
     const [openHambur, setOpenHambur] = useState(false);
     const navigate = useNavigate();
-
     const open_Search = useSelector((state: any) => state.openSearch.value);
     const dispatch = useDispatch();
     function navigateToHomePage() {
@@ -30,8 +31,9 @@ export default function Header() {
         <Container>
             {open_Search && <SearchHeader />}
             {openHambur && <HamburHeader Open={setOpenHambur} />}
-            {openHeaderSignIn && <HeaderSignIn Open={setOpenHeaderSignIn} />}
-            {!openHambur && !open_Search && !openHeaderSignIn &&
+            {openHeaderSignIn && <HeaderSignIn />}
+            {openHeaderSignUp && <HeaderSignUp />}
+            {!openHambur && !open_Search && !openHeaderSignIn && !openHeaderSignUp &&
                 (
                     <HeaderContainer id='myID'>
                         <Div>
@@ -42,7 +44,7 @@ export default function Header() {
                         </Div>
                         <RightHeader>
                             <Button onClick={() => dispatch(openSearch(true))}><Search_icon src="Images/Search.jpg" alt="search" /></Button>
-                            <Button onClick={() => setOpenHeaderSignIn(true)}><User_icon src="Images/User.jpg" alt="user" /></Button>
+                            <Button onClick={() => dispatch(setOpenSignIn(true))}><User_icon src="Images/User.jpg" alt="user" /></Button>
                             <Button><Bag_icon src="Images/Bag.jpg" alt="bag" /></Button>
                         </RightHeader>
                     </HeaderContainer>

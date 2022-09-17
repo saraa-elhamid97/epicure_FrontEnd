@@ -1,18 +1,21 @@
 import React, { useState } from 'react'
 import validator from 'validator'
-import { UpdateOpen } from '../../interfaces';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { CloseBtn, Email, Forget, HeaderSignInContent, HeaderSignInContentTopSide, HeaderSignInHeader, HeaderSignInLoginSide, HeaderSignInWrapper, Label, Line, LineSide, LoginButton, Or, Password, SignInContinue, SignInInput, SignInText, Signup, TextSide } from './HeaderSignInStyles'
 import { X_icon } from './hamburHeader/HamburStyle';
-
-export default function HeaderSignIn(props: UpdateOpen) {
+import { useDispatch } from 'react-redux';
+import { setOpenSignUp } from './SingUpStateSlice';
+import { setOpenSignIn } from './SingInStateSlice';
+export default function HeaderSignIn() {
     const [email, updateEmail] = useState("");
     const [filled, updatefilled] = useState({ email: false, password: false });
+    const dispatch = useDispatch();
     const [password, updatePassword] = useState("");
+
     return (
         <HeaderSignInWrapper>
-            <HeaderSignInHeader><CloseBtn onClick={() => props.Open(false)}><X_icon src="Images/x.png" alt="close icon" /></CloseBtn></HeaderSignInHeader>
+            <HeaderSignInHeader><CloseBtn onClick={() => dispatch(setOpenSignIn(false))}><X_icon src="Images/x.png" alt="close icon" /></CloseBtn></HeaderSignInHeader>
             <HeaderSignInContent>
                 <ToastContainer
                     position="top-right"
@@ -82,6 +85,8 @@ export default function HeaderSignIn(props: UpdateOpen) {
                                     draggable: true,
                                     progress: undefined,
                                 });
+                                dispatch(setOpenSignIn(false))
+
                             }
                         }
                     }}>login</LoginButton>
@@ -93,7 +98,11 @@ export default function HeaderSignIn(props: UpdateOpen) {
                     <Or>or</Or>
                     <Line></Line>
                 </LineSide>
-                <Signup>sign up</Signup>
+                <Signup onClick={() => {
+                    window.scrollTo(0, 0);
+                    dispatch(setOpenSignIn(false));
+                    dispatch(setOpenSignUp(true));
+                }}>sign up</Signup>
 
             </HeaderSignInContent>
         </HeaderSignInWrapper>

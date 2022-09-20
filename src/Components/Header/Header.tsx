@@ -9,6 +9,7 @@ import { RightHeader, HeaderContainer, Logo_icon, Bag_icon, User_icon } from './
 import { useDispatch, useSelector } from 'react-redux'
 import SearchResults from '../SearchResults/SearchResults'
 import { openSearch } from './openSearchSlicer'
+import { setOpenSignIn } from './SingInStateSlice'
 
 
 
@@ -81,7 +82,9 @@ export default function Header() {
                                 dispatch(openSearch(!open_Search));
                                 <SearchHeader />
                             }}><Search_icon src="Images/Search.jpg" alt="search" /></Button>
-                            <Button><User_icon src="Images/User.jpg" alt="user" /></Button>
+                            <Button onClick={() => {
+                                dispatch(setOpenSignIn(true));
+                            }}><User_icon src="Images/User.jpg" alt="user" /></Button>
                             <Button><Bag_icon src="Images/Bag.jpg" alt="bag" /></Button>
                         </RightHeader>
                     </HeaderContainer>

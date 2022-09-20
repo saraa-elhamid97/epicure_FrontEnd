@@ -8,6 +8,8 @@ import SetWindowSize from '../../helpers/SetWindowSize'
 import { Line } from '../../Components/DishDesktop/DishDesktopStyle';
 import { useSelector } from 'react-redux';
 import DishDesktop from '../../Components/DishDesktop/DishDesktop';
+import HeaderSignIn from '../../Components/Header/HeaderSignIn'
+import HeaderSignUp from '../../Components/Header/HeaderSignUp'
 
 export default function RestaurantProfile() {
     const location = useLocation();
@@ -17,7 +19,8 @@ export default function RestaurantProfile() {
     let desktopView = windowSize >= 600 ? true : false;
     const [dishes, setDishes] = useState<DishInfo[]>([]);
     const openDishProfile = useSelector((state: any) => state.dishes.openDishProfile);
-
+    const signInState: boolean = useSelector((state: any) => state.signinstate.value);
+    const signUpState: boolean = useSelector((state: any) => state.signupstate.value);
 
     useEffect(() => {
         async function fetchRestaurant() {
@@ -31,6 +34,8 @@ export default function RestaurantProfile() {
 
     return (
         <Div>
+            {desktopView && ((signInState && <HeaderSignIn />) || (signUpState && <HeaderSignUp />))}
+
             <ResContainer>
                 {desktopView ? <Img src={restaurantData.heroImg} alt="restaurants image" /> : <Img src={restaurantData.img_path} alt="restaurants image" />}
                 <Div>

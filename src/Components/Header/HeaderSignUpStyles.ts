@@ -1,9 +1,22 @@
 import styled from "styled-components"
-import { HeaderSignInContent, HeaderSignInContentTopSide, HeaderSignInHeader, HeaderSignInLoginSide, HeaderSignInWrapper, Password, SignInContinue, SignInText, Signup } from "./HeaderSignInStyles"
+import { HeaderSignInContent, HeaderSignInContentTopSide,  HeaderSignInHeader,  HeaderSignInLoginSide, HeaderSignInWrapper, Label, Password, SignInContinue, SignInText, Signup } from "./HeaderSignInStyles"
 export const HeaderSignUpWrapper=styled(HeaderSignInWrapper)``
 export const HeaderSignUpHeader=styled(HeaderSignInHeader)``
 export const HeaderSignUpContent=styled(HeaderSignInContent)`
 max-height:850px;
+`
+export const CheckPasswordInput=styled(Label)``
+
+export const CheckPasswordContainer=styled.div`
+display:flex;
+flex-direction:column;
+align-items: flex-start;
+`
+export const PasswordSide=styled.div`
+display:flex;
+flex-direction:column;
+width:100%;
+gap:10px;
 `
 export const HeaderSignUpContentTopSide=styled(HeaderSignInContentTopSide)``
 export const SignUpText=styled(SignInText)``

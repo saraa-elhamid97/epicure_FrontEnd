@@ -18,6 +18,8 @@ background: transparent;
     cursor: pointer;
 }`
 export const Div = styled.div``
+export const DiV = styled.div``
+
 
 export const Break = styled.br``
 export const Img = styled.img``

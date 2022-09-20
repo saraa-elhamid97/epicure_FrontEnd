@@ -4,12 +4,19 @@ import { ChefImg } from '../../Components/ChefOfWeek/ChefOfWeekStyle';
 import { Line } from '../../Components/DishProfile/DishProfileStyle';
 import { ChefInfo } from '../../interfaces';
 import { Title, Nav_Bar, ChefName_Img, Chef_Name, ChefsCard, ChefsContainer, AllButton, NewButton, MostViewdButton } from './ChefsPageStyle';
+import SetWindowSize from '../../helpers/SetWindowSize'
+import HeaderSignIn from '../../Components/Header/HeaderSignIn'
+import HeaderSignUp from '../../Components/Header/HeaderSignUp'
+import { Div } from '../../LayoutStyle';
 
 export default function ChefsPage() {
     const [bold, setBold] = useState('all');
     const allChefs: ChefInfo[] = useSelector((state: any) => state.chefs.allChefs);
     const [chefsUI, setChefsUI] = useState<ChefInfo[]>(allChefs);
-
+    let windowSize = SetWindowSize();
+    let desktopView = windowSize >= 600 ? true : false;
+    const signInState: boolean = useSelector((state: any) => state.signinstate.value);
+    const signUpState: boolean = useSelector((state: any) => state.signupstate.value);
 
     function filterChefs(buttonId: string) {
         let filterdChefs = allChefs.filter((chef: ChefInfo) => {
@@ -27,28 +34,33 @@ export default function ChefsPage() {
 
 
     return (
-        <ChefsContainer>
-            <Title>Chefs</Title>
-            <Nav_Bar>
-                <AllButton clicked={bold} id='all' onClick={() => { filterChefs('all'); setBold('all'); }}>All</AllButton>
-                <NewButton id='new' clicked={bold} onClick={() => { filterChefs('new'); setBold('new'); }}>New</NewButton>
-                <MostViewdButton id='mostViewed' clicked={bold} onClick={() => { filterChefs('mostViewed'); setBold('mostViewed'); }}>Most Viewd</MostViewdButton>
+        <Div>
+            {desktopView && ((signInState && <HeaderSignIn />) || (signUpState && <HeaderSignUp />))}
 
-            </Nav_Bar>
+            <ChefsContainer>
+                <Title>Chefs</Title>
+                <Nav_Bar>
+                    <AllButton clicked={bold} id='all' onClick={() => { filterChefs('all'); setBold('all'); }}>All</AllButton>
+                    <NewButton id='new' clicked={bold} onClick={() => { filterChefs('new'); setBold('new'); }}>New</NewButton>
+                    <MostViewdButton id='mostViewed' clicked={bold} onClick={() => { filterChefs('mostViewed'); setBold('mostViewed'); }}>Most Viewd</MostViewdButton>
 
-            <ChefsCard>
+                </Nav_Bar>
 
-                {chefsUI.map((element, key) => (
-                    <ChefName_Img key={key}>
-                        <ChefImg src={element.img} alt={element.name} />
-                        <Chef_Name >{element.name}</Chef_Name>
-                    </ChefName_Img>
-                ))}
+                <ChefsCard>
 
-            </ChefsCard>
+                    {chefsUI.map((element, key) => (
+                        <ChefName_Img key={key}>
+                            <ChefImg src={element.img} alt={element.name} />
+                            <Chef_Name >{element.name}</Chef_Name>
+                        </ChefName_Img>
+                    ))}
 
-            <Line></Line>
+                </ChefsCard>
 
-        </ChefsContainer>
+                <Line></Line>
+
+            </ChefsContainer>
+        </Div>
+
     )
 }

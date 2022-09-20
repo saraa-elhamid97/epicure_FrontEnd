@@ -9,12 +9,21 @@ import SignatureDishes from '../../Components/signature_dishes/SignatureDishes'
 import Types from '../../Components/types/Types'
 import { Div } from '../../LayoutStyle'
 import { HomePageContainer } from './HomePageStyle'
+import SetWindowSize from '../../helpers/SetWindowSize'
+import HeaderSignIn from '../../Components/Header/HeaderSignIn'
+import HeaderSignUp from '../../Components/Header/HeaderSignUp'
 
 
 export default function HomePage() {
+    const signInState: boolean = useSelector((state: any) => state.signinstate.value);
+    const signUpState: boolean = useSelector((state: any) => state.signupstate.value);
     const openDishProfile = useSelector((state: any) => state.dishes.openDishProfile);
+    let windowSize = SetWindowSize();
+    let desktopView = windowSize >= 600 ? true : false;
     return (
         <Div>
+            {desktopView && ((signInState && <HeaderSignIn />) || (signUpState && <HeaderSignUp />))}
+
             <HomePageContainer>
                 <Hero />
                 <PopularRestaurants />

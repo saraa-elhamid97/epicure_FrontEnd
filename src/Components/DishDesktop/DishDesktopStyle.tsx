@@ -25,7 +25,7 @@ width:100%;
 export const CloseBtn = styled.div`
 `
 export const X_icon = styled.img`
-    margin: 4% 5% 0%;
+    margin: 4% 0%;
 `
 
 export const DishName = styled.div`
